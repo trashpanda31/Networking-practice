@@ -1,8 +1,9 @@
-
+````markdown
 ## 2025-09-22 10:56:24
 ```bash
 $ ip -br a
-```
+````
+
 ```
 lo               UNKNOWN        127.0.0.1/8 ::1/128 
 enp9s0           DOWN           
@@ -12,9 +13,11 @@ wlp6s0           UP             192.168.1.111/24 fe80::b607:8687:782c:7470/64
 ## AFTER STATIC IP AND SSH SETTING ON VM
 
 ## 2025-09-22 12:08:58
+
 ```bash
 $ ssh eliass@192.168.1.150
 ```
+
 ```
 Warning: Permanently added '192.168.1.150' (ED25519) to the list of known hosts.
 Welcome to Ubuntu 24.04.3 LTS (GNU/Linux 6.14.0-29-generic x86_64)
@@ -40,16 +43,18 @@ applicable law.
 
 To run a command as administrator (user "root"), use "sudo <command>".
 See "man sudo_root" for details.
+```
 
 ## 2025-09-22 12:15:13
-bash
+
+```bash
 $ ssh-keygen -t ed25519 -a 100 -C eliass-lab
-````
-````
+```
+
+```
 Generating public/private ed25519 key pair.
 Enter file in which to save the key (/home/eliass/.ssh/id_ed25519): 
 Enter passphrase (empty for no passphrase): Created directory '/home/eliass/.ssh'.
-
 
 Enter same passphrase again: 
 Your identification has been saved in /home/eliass/.ssh/id_ed25519
@@ -68,20 +73,21 @@ The key's randomart image is:
 |+=.+o+o+         |
 |=.o.o+...        |
 +----[SHA256]-----+
-````
+```
 
 ## 2025-09-22 12:16:44
-bash
+
+```bash
 $ ssh-copy-id eliass@192.168.1.150
-````
-````
+```
+
+```
 /usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/eliass/.ssh/id_ed25519.pub"
 
 The authenticity of host '192.168.1.150 (192.168.1.150)' can't be established.
 ED25519 key fingerprint is SHA256:x+RBJzBSkyN1UdO2dHEZEbQblQzpobQRJXa/mA0iII8.
 This key is not known by any other names.
 Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-
 
 /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
 /usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
@@ -92,13 +98,15 @@ Number of key(s) added: 1
 
 Now try logging into the machine, with:   "ssh 'eliass@192.168.1.150'"
 and check to make sure that only the key(s) you wanted were added.
-````
+```
 
 ## 2025-09-22 12:17:36
-bash
+
+```bash
 $ ssh eliass@192.168.1.150
-````
-````
+```
+
+```
 Welcome to Ubuntu 24.04.3 LTS (GNU/Linux 6.14.0-29-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com
@@ -116,15 +124,17 @@ Last login: Mon Sep 22 12:09:14 2025 from 192.168.1.111
 
 To run a command as administrator (user "root"), use "sudo <command>".
 See "man sudo_root" for details.
+```
 
 ## 2025-09-22 12:23:49
-bash
-$ sshd -t
-````
-````
-sshd: no hostkeys available -- exiting.
 
-````
+```bash
+$ sshd -t
+```
+
+```
+sshd: no hostkeys available -- exiting.
+```
 
 ## 2025-09-22 12:23:57
 
@@ -245,4 +255,6 @@ logout
 Connection to 192.168.1.150 closed.
 ```
 
+```
+```
 

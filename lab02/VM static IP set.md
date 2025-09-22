@@ -1,17 +1,20 @@
-
+````markdown
 ## 2025-09-22 11:26:35
-bash
+```bash
 $ ip -br a
-```
+````
+
 ```
 lo               UNKNOWN        127.0.0.1/8 ::1/128 
 enp0s3           UP             192.168.1.202/24 fe80::a00:27ff:feb1:1e94/64 
 ```
 
 ## 2025-09-22 11:26:49
-bash
+
+```bash
 $ ls -l /etc/netplan/
 ```
+
 ```
 total 12
 -rw-r--r-- 1 root root 252 Sep 22 11:15 01-network-manager-all.yaml.bak
@@ -20,9 +23,12 @@ total 12
 ```
 
 ## 2025-09-22 11:26:49
-bash
+
+```bash
 $ sudo nano /etc/netplan/50-cloud-init.yaml
-INSIDE (
+```
+
+```
 network:
   version: 2
   ethernets:
@@ -35,21 +41,18 @@ network:
           via: 192.168.1.1
       nameservers:
         addresses: [1.1.1.1, 8.8.8.8]
-        )
 ```
-```
-
 
 ## 2025-09-22 11:31:21
-bash
+
+```bash
 $ sudo netplan try
 ```
+
 ```
 Do you want to keep these settings?
 
-
 Press ENTER before the timeout to accept the new configuration
-
 
 Changes will revert in 120 seconds
 Changes will revert in 119 seconds
@@ -63,19 +66,27 @@ Configuration accepted.
 ```
 
 ## 2025-09-22 11:31:49
-bash
+
+```bash
 $ ip -br a
 ```
+
 ```
 lo               UNKNOWN        127.0.0.1/8 ::1/128 
 enp0s3           UP             192.168.1.150/24 fe80::a00:27ff:feb1:1e94/64 
 ```
 
 ## 2025-09-22 11:32:04
-bash
+
+```bash
 $ ip route
 ```
+
 ```
 default via 192.168.1.1 dev enp0s3 proto static metric 100 
 192.168.1.0/24 dev enp0s3 proto kernel scope link src 192.168.1.150 metric 100 
 ```
+
+```
+```
+

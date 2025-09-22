@@ -1,10 +1,10 @@
-
+````markdown
 ## 2025-09-22 11:37:46
-bash
+```bash
 $ sudo apt install -y openssh-server
-```
-```
+````
 
+```
 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
 
 Reading package lists...
@@ -67,7 +67,6 @@ Setting up openssh-server (1:9.6p1-3ubuntu13.14) ...
 
 Creating config file /etc/ssh/sshd_config with new version
 Created symlink /etc/systemd/system/sockets.target.wants/ssh.socket → /usr/lib/systemd/system/ssh.socket.
-
 Created symlink /etc/systemd/system/ssh.service.requires/ssh.socket → /usr/lib/systemd/system/ssh.socket.
 
 Setting up ssh-import-id (5.11-0ubuntu2.24.04.1) ...
@@ -77,9 +76,11 @@ Processing triggers for ufw (0.36.2-6) ...
 ```
 
 ## 2025-09-22 11:38:30
-bash
+
+```bash
 $ sudo systemctl enable ssh
 ```
+
 ```
 Synchronizing state of ssh.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
 Executing: /usr/lib/systemd/systemd-sysv-install enable ssh
@@ -88,16 +89,20 @@ Created symlink /etc/systemd/system/multi-user.target.wants/ssh.service → /usr
 ```
 
 ## 2025-09-22 11:39:32
-bash
+
+```bash
 $ sudo systemctl start ssh
 ```
+
 ```
 ```
 
 ## 2025-09-22 11:40:20
-bash
+
+```bash
 $ systemctl status ssh
 ```
+
 ```
 ● ssh.service - OpenBSD Secure Shell server
      Loaded: loaded (/usr/lib/systemd/system/ssh.service; enabled; preset: enabled)
@@ -120,9 +125,11 @@ Sep 22 11:39:32 user1-VirtualBox systemd[1]: Started ssh.service - OpenBSD Secur
 ```
 
 ## 2025-09-22 11:41:23
-bash
+
+```bash
 $ sudo ss -tlnp
 ```
+
 ```
 State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess                                                 
 LISTEN 0      4096         0.0.0.0:22        0.0.0.0:*    users:(("sshd",pid=4549,fd=3),("systemd",pid=1,fd=156))
@@ -134,9 +141,11 @@ LISTEN 0      4096            [::]:22           [::]:*    users:(("sshd",pid=454
 ```
 
 ## 2025-09-22 11:57:00
-bash
+
+```bash
 $ sudo adduser eliass
 ```
+
 ```
 info: Adding user `eliass' ...
 info: Selecting UID/GID from range 1000 to 59999 ...
@@ -149,40 +158,52 @@ Retype new password:
 passwd: password updated successfully
 Changing the user information for eliass
 Enter the new value, or press ENTER for the default
-	Full Name []: 	Room Number []: 	Work Phone []: 	Home Phone []: 	Other []: Is the information correct? [Y/n] info: Adding new user `eliass' to supplemental / extra groups `users' ...
+	Full Name []: 
+	Room Number []: 
+	Work Phone []: 
+	Home Phone []: 
+	Other []: 
+Is the information correct? [Y/n] info: Adding new user `eliass' to supplemental / extra groups `users' ...
 info: Adding user `eliass' to group `users' ...
 ```
 
 ## 2025-09-22 11:58:17
-bash
+
+```bash
 $ usermod -aG sudo eliass
 ```
+
 ```
 usermod: Permission denied.
 usermod: cannot lock /etc/passwd; try again later.
 ```
 
 ## 2025-09-22 11:59:39
-bash
+
+```bash
 $ sudo usermod -aG sudo eliass
 ```
+
 ```
 ```
 
 ## 2025-09-22 11:59:46
-bash
+
+```bash
 $ id eliass
 ```
+
 ```
 uid=1001(eliass) gid=1001(eliass) groups=1001(eliass),27(sudo),100(users)
 ```
 
 ## 2025-09-22 12:03:23
-```
-bash
+
+```bash
 $ sudo nano /etc/ssh/sshd_config
 ```
-INSIDE (
+
+```
 Port 22
 Protocol 2
 PermitRootLogin no
@@ -199,28 +220,32 @@ LoginGraceTime 20
 MaxAuthTries 3
 PermitEmptyPasswords no
 AllowUsers eliass
-)
 ```
-
 
 ## 2025-09-22 12:05:30
-bash
+
+```bash
 $ sudo sshd -t
 ```
+
 ```
 ```
 
 ## 2025-09-22 12:05:48
-bash
+
+```bash
 $ sudo systemctl restart ssh
 ```
+
 ```
 ```
 
 ## 2025-09-22 12:06:11
-bash
+
+```bash
 $ journalctl -u ssh -n 20 --no-pager
 ```
+
 ```
 Sep 22 11:39:32 user1-VirtualBox systemd[1]: Starting ssh.service - OpenBSD Secure Shell server...
 Sep 22 11:39:32 user1-VirtualBox sshd[4549]: Server listening on 0.0.0.0 port 22.
@@ -235,3 +260,7 @@ Sep 22 12:05:52 user1-VirtualBox sshd[6303]: Server listening on 0.0.0.0 port 22
 Sep 22 12:05:52 user1-VirtualBox sshd[6303]: Server listening on :: port 22.
 Sep 22 12:05:52 user1-VirtualBox systemd[1]: Started ssh.service - OpenBSD Secure Shell server.
 ```
+
+```
+```
+
