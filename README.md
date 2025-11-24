@@ -39,7 +39,7 @@ In this README you’ll find **short summaries** of what was done and what each 
 
 ![Lab 4 DHCP diagram](https://i.imgur.com/mqwgZIP.png)
 
-## Lab 5 — 🔀 VM1 as SNAT Router for VM2 & VM3
+## Lab 5 - 🔀 VM1 as SNAT Router for VM2 & VM3
 * Continued from **Lab 4**, keeping VM1 as DHCP server for subnet `192.168.56.0/24`.  
 * Configured VM1 with two interfaces:  
     * `enp0s3` (WAN) > `192.168.1.150`  
